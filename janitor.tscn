@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnvcorulpkosx"]
+
+[ext_resource type="Script" uid="uid://cdnsckd5fnp33" path="res://character_body_2d.gd" id="1_0kmga"]
+[ext_resource type="Texture2D" uid="uid://b33y1fdh20pe7" path="res://Assets/JanitorCharacter.png" id="2_0kmga"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sgui"]
+size = Vector2(101, 106)
+
+[node name="Janitor" type="CharacterBody2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_0kmga")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -5)
+scale = Vector2(0.069146916, 0.069146916)
+texture = ExtResource("2_0kmga")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -4)
+shape = SubResource("RectangleShape2D_1sgui")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -35)
+zoom = Vector2(1.25, 1.25)
+position_smoothing_enabled = true
