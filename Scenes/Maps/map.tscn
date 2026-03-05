@@ -1,15 +1,19 @@
-[gd_scene load_steps=8 format=4 uid="uid://eplm6c7jfgh5"]
+[gd_scene load_steps=12 format=4 uid="uid://eplm6c7jfgh5"]
 
-[ext_resource type="Texture2D" uid="uid://c3ign7xt3cs6t" path="res://nuremberg-germany-december-30-2024-600nw-2704415507.webp" id="1_p5pve"]
-[ext_resource type="PackedScene" uid="uid://bnvcorulpkosx" path="res://janitor.tscn" id="1_wijl4"]
-[ext_resource type="Texture2D" uid="uid://cna8brfq8bw5q" path="res://icon.svg" id="2_e0an3"]
-[ext_resource type="Texture2D" uid="uid://pegbvji60aw5" path="res://FloorTileset.png" id="4_urblq"]
+[ext_resource type="Texture2D" uid="uid://c3ign7xt3cs6t" path="res://nuremberg-germany-december-30-2024-600nw-2704415507.webp" id="1_q4nek"]
+[ext_resource type="PackedScene" uid="uid://bnvcorulpkosx" path="res://Scenes/Characters/janitor.tscn" id="2_t6gnw"]
+[ext_resource type="Texture2D" uid="uid://cna8brfq8bw5q" path="res://icon.svg" id="3_kdlte"]
+[ext_resource type="Texture2D" uid="uid://pegbvji60aw5" path="res://FloorTileset.png" id="4_4i112"]
+[ext_resource type="PackedScene" uid="uid://dmj1q6s4gkesu" path="res://Scenes/Characters/bubbles.tscn" id="5_uf2qa"]
+[ext_resource type="PackedScene" uid="uid://dj663bhwf54oa" path="res://Scenes/Characters/zombie.tscn" id="6_t6gnw"]
+[ext_resource type="PackedScene" uid="uid://usyidqpub856" path="res://Scenes/Characters/UI.tscn" id="7_kdlte"]
+[ext_resource type="PackedScene" uid="uid://bryrcvlstnyx7" path="res://Scenes/Characters/mop_pickup.tscn" id="8_4i112"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5pve"]
 size = Vector2(283.48767, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iw27f"]
-texture = ExtResource("4_urblq")
+texture = ExtResource("4_4i112")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -29,19 +33,20 @@ sources/0 = SubResource("TileSetAtlasSource_iw27f")
 visible = false
 position = Vector2(1239.5, 237.75002)
 scale = Vector2(4.7949996, 1.7030073)
-texture = ExtResource("1_p5pve")
+texture = ExtResource("1_q4nek")
 
-[node name="Janitor" parent="." instance=ExtResource("1_wijl4")]
+[node name="Janitor" parent="." instance=ExtResource("2_t6gnw")]
 position = Vector2(291, 292)
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(519, 483.00003)
 scale = Vector2(12.071072, 1.287193)
-texture = ExtResource("2_e0an3")
+texture = ExtResource("3_kdlte")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(569, 593.00006)
 scale = Vector2(12.071072, 1.287193)
+collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(41.918396, -83.903534)
@@ -54,3 +59,22 @@ position = Vector2(-47.13749, -460.6924)
 scale = Vector2(0.41421342, 3.8844213)
 tile_map_data = PackedByteArray("AAACAAUAAAAAAAAAAAADAAUAAAABAAAAAAAEAAUAAAABAAAAAAAFAAUAAAACAAAAAAAGAAUAAAADAAAAAAAHAAUAAAAAAAAAAAALAAUAAAADAAAAAAAKAAUAAAACAAAAAAAJAAUAAAABAAAAAAAIAAUAAAABAAAAAAADAAYAAAACAAEAAAAGAAYAAAACAAEAAAAIAAYAAAACAAEAAAAJAAYAAAACAAEAAAALAAYAAAACAAEAAAAEAAYAAAABAAEAAAAFAAYAAAABAAEAAAADAAcAAAABAAEAAAACAAYAAAABAAEAAAAFAAcAAAABAAEAAAAHAAYAAAABAAEAAAAJAAcAAAABAAEAAAAHAAcAAAABAAEAAAAIAAcAAAABAAEAAAALAAcAAAABAAEAAAAKAAcAAAABAAEAAAAKAAYAAAAAAAEAAAAGAAcAAAAAAAEAAAAEAAcAAAAAAAEAAAACAAcAAAAAAAEAAAAMAAUAAAAAAAAAAAAMAAYAAAABAAEAAAAMAAcAAAAAAAEAAAANAAUAAAABAAAAAAANAAYAAAACAAEAAAANAAcAAAABAAEAAAAOAAUAAAABAAAAAAAOAAYAAAABAAEAAAAOAAcAAAAAAAEAAAAPAAUAAAACAAAAAAAPAAYAAAABAAEAAAAPAAcAAAABAAEAAAAQAAUAAAADAAAAAAAQAAYAAAACAAEAAAAQAAcAAAAAAAEAAAARAAUAAAAAAAAAAAARAAYAAAABAAEAAAARAAcAAAABAAEAAAASAAUAAAABAAAAAAASAAYAAAACAAEAAAASAAcAAAABAAEAAAATAAUAAAABAAAAAAATAAYAAAACAAEAAAATAAcAAAABAAEAAAAUAAUAAAACAAAAAAAUAAYAAAAAAAEAAAAUAAcAAAABAAEAAAAVAAUAAAADAAAAAAAVAAYAAAACAAEAAAAVAAcAAAABAAEAAAAWAAUAAAAAAAAAAAAWAAYAAAABAAEAAAAWAAcAAAAAAAEAAAAXAAUAAAABAAAAAAAXAAYAAAACAAEAAAAXAAcAAAABAAEAAAAYAAUAAAABAAAAAAAYAAYAAAABAAEAAAAYAAcAAAAAAAEAAAAZAAUAAAACAAAAAAAZAAYAAAABAAEAAAAZAAcAAAABAAEAAAAaAAUAAAADAAAAAAAaAAYAAAACAAEAAAAaAAcAAAAAAAEAAAAbAAUAAAAAAAAAAAAbAAYAAAABAAEAAAAbAAcAAAABAAEAAAAcAAUAAAABAAAAAAAcAAYAAAACAAEAAAAcAAcAAAABAAEAAAAdAAUAAAABAAAAAAAdAAYAAAACAAEAAAAdAAcAAAABAAEAAAAeAAUAAAACAAAAAAAeAAYAAAAAAAEAAAAeAAcAAAABAAEAAAAfAAUAAAADAAAAAAAfAAYAAAACAAEAAAAfAAcAAAABAAEAAAD4/wUAAAAAAAAAAAD4/wYAAAABAAEAAAD4/wcAAAAAAAEAAAD5/wUAAAABAAAAAAD5/wYAAAACAAEAAAD5/wcAAAABAAEAAAD6/wUAAAABAAAAAAD6/wYAAAABAAEAAAD6/wcAAAAAAAEAAAD7/wUAAAACAAAAAAD7/wYAAAABAAEAAAD7/wcAAAABAAEAAAD8/wUAAAADAAAAAAD8/wYAAAACAAEAAAD8/wcAAAAAAAEAAAD9/wUAAAAAAAAAAAD9/wYAAAABAAEAAAD9/wcAAAABAAEAAAD+/wUAAAABAAAAAAD+/wYAAAACAAEAAAD+/wcAAAABAAEAAAD//wUAAAABAAAAAAD//wYAAAACAAEAAAD//wcAAAABAAEAAAAAAAUAAAACAAAAAAAAAAYAAAAAAAEAAAAAAAcAAAABAAEAAAABAAUAAAADAAAAAAABAAYAAAACAAEAAAABAAcAAAABAAEAAAA=")
 tile_set = SubResource("TileSet_71pa8")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("5_uf2qa")]
+position = Vector2(644, 305)
+
+[node name="Zombie" parent="." instance=ExtResource("6_t6gnw")]
+position = Vector2(-111, 288)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("7_kdlte")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 1
+scale = Vector2(0.53790224, 0.53790224)
+
+[node name="Node2D" parent="." instance=ExtResource("8_4i112")]
+position = Vector2(924, 341)

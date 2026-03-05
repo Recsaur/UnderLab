@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pmd3abumywdr"
-path="res://.godot/imported/bubbles.png-099aa7c7a478a07a388392e16dc0e92e.ctex"
+uid="uid://d33mn81dqlsw2"
+path="res://.godot/imported/zombie_merge2.png-a8addad6d252579ddb902431570c9d3a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/bubbles.png"
-dest_files=["res://.godot/imported/bubbles.png-099aa7c7a478a07a388392e16dc0e92e.ctex"]
+source_file="res://Assets/zombie_merge2.png"
+dest_files=["res://.godot/imported/zombie_merge2.png-a8addad6d252579ddb902431570c9d3a.ctex"]
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

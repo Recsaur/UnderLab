@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://bnvcorulpkosx"]
+
+[ext_resource type="Script" uid="uid://cdnsckd5fnp33" path="res://character_body_2d.gd" id="1_0kmga"]
+[ext_resource type="Texture2D" uid="uid://b33y1fdh20pe7" path="res://Assets/JanitorCharacter.png" id="2_0kmga"]
+[ext_resource type="Texture2D" uid="uid://ch5dbriqdegkj" path="res://Assets/JanitorIdle.png" id="3_jiomh"]
+[ext_resource type="PackedScene" uid="uid://cx4jplac047hs" path="res://Scenes/Items/Weapon.tscn" id="4_1ow1a"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1sgui"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0kmga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0kmga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0kmga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jiomh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0kmga")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sgui"]
+size = Vector2(28.666672, 100.333336)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ow1a"]
+size = Vector2(48.666668, 20)
+
+[node name="Janitor" type="CharacterBody2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_0kmga")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -5)
+scale = Vector2(0.069146916, 0.069146916)
+sprite_frames = SubResource("SpriteFrames_1sgui")
+frame_progress = 0.3344063
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -1.1666679)
+shape = SubResource("RectangleShape2D_1sgui")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -35)
+zoom = Vector2(1.25, 1.25)
+position_smoothing_enabled = true
+
+[node name="Mop" parent="." instance=ExtResource("4_1ow1a")]
+position = Vector2(-0.6666667, 0)
+
+[node name="Area2D" type="Area2D" parent="Mop"]
+position = Vector2(76.66667, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mop/Area2D"]
+position = Vector2(14.333334, 0)
+shape = SubResource("RectangleShape2D_1ow1a")
+disabled = true
