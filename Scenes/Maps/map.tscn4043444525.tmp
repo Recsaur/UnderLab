@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://eplm6c7jfgh5"]
+[gd_scene load_steps=11 format=4 uid="uid://eplm6c7jfgh5"]
 
 [ext_resource type="Texture2D" uid="uid://c3ign7xt3cs6t" path="res://nuremberg-germany-december-30-2024-600nw-2704415507.webp" id="1_q4nek"]
 [ext_resource type="PackedScene" uid="uid://bnvcorulpkosx" path="res://Scenes/Characters/janitor.tscn" id="2_t6gnw"]
@@ -7,10 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://dmj1q6s4gkesu" path="res://Scenes/Characters/bubbles.tscn" id="5_uf2qa"]
 [ext_resource type="PackedScene" uid="uid://usyidqpub856" path="res://Scenes/Characters/UI.tscn" id="7_kdlte"]
 [ext_resource type="PackedScene" uid="uid://bryrcvlstnyx7" path="res://Scenes/Characters/mop_pickup.tscn" id="8_4i112"]
-[ext_resource type="PackedScene" uid="uid://dj663bhwf54oa" path="res://Scenes/Characters/Z_Abnormal.tscn" id="8_uf2qa"]
-[ext_resource type="PackedScene" uid="uid://dc5j8n08pl2n4" path="res://Scenes/Characters/Z_Normal.tscn" id="9_uf2qa"]
-[ext_resource type="PackedScene" uid="uid://cd0aomh7dquww" path="res://Scenes/Characters/z_buff.tscn" id="10_ww8yf"]
-[ext_resource type="PackedScene" uid="uid://bvja4c4wlsa2q" path="res://Scenes/Characters/z_plant.tscn" id="11_qxx83"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5pve"]
 size = Vector2(283.48767, 128)
@@ -88,19 +84,3 @@ scale = Vector2(0.53790224, 0.53790224)
 
 [node name="Node2D" parent="." instance=ExtResource("8_4i112")]
 position = Vector2(924, 341)
-
-[node name="Zombie" parent="." instance=ExtResource("8_uf2qa")]
-position = Vector2(-442, 112)
-scale = Vector2(1.4068143, 1.4068143)
-
-[node name="Z_Normal" parent="." instance=ExtResource("9_uf2qa")]
-position = Vector2(-181, 90.00001)
-scale = Vector2(1.125, 1.125)
-
-[node name="Z_Buff" parent="." instance=ExtResource("10_ww8yf")]
-position = Vector2(-24.000004, 69)
-scale = Vector2(1.1467332, 1.1467332)
-
-[node name="Z_Plant" parent="." instance=ExtResource("11_qxx83")]
-position = Vector2(132, 52)
-scale = Vector2(1.1641164, 1.1641164)

@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://cd0aomh7dquww"]
+
+[ext_resource type="Script" uid="uid://dl8a6ry8t5yl5" path="res://z_buff.gd" id="1_o2jvt"]
+[ext_resource type="Texture2D" uid="uid://sj45okae7g5m" path="res://Assets/buffzom1.png" id="2_j2q7c"]
+[ext_resource type="Texture2D" uid="uid://dp5t6elah7f5p" path="res://Assets/buffzom2.png" id="3_05blc"]
+[ext_resource type="Texture2D" uid="uid://bsq8xb42cf1od" path="res://Assets/buffzom3.png" id="4_2k7qp"]
+[ext_resource type="Texture2D" uid="uid://473qjbkr7h2w" path="res://Assets/buffzom4.png" id="5_8kv6q"]
+[ext_resource type="Texture2D" uid="uid://bpxlyjmmpccm6" path="res://Assets/buffzom5.png" id="6_pkej4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j2q7c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_j2q7c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_05blc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2k7qp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8kv6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_pkej4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8kv6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2k7qp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_05blc")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_05blc"]
+radius = 37.0
+height = 158.0
+
+[node name="Z_Buff" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_o2jvt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.9073486e-06, 1.9073486e-06)
+scale = Vector2(0.08341734, 0.08341734)
+sprite_frames = SubResource("SpriteFrames_j2q7c")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.39000955
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, 1)
+shape = SubResource("CapsuleShape2D_05blc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 1)
+shape = SubResource("CapsuleShape2D_05blc")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

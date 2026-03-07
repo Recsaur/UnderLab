@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://dc5j8n08pl2n4"]
+
+[ext_resource type="Texture2D" uid="uid://djir6ppfibhrr" path="res://Assets/zombie2.png" id="1_3ljle"]
+[ext_resource type="Script" uid="uid://cbd2l3b7jo2fp" path="res://Scenes/Characters/z_normal.gd" id="1_hveiu"]
+[ext_resource type="Texture2D" uid="uid://c3wnkqxwgnd3w" path="res://Assets/zombie.png" id="2_hveiu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tufif"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3ljle")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hveiu")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 2.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tufif"]
+radius = 28.0
+height = 138.0
+
+[node name="Z_Normal" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_hveiu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.9073486e-06, 1.9073486e-06)
+scale = Vector2(0.08341734, 0.08341734)
+sprite_frames = SubResource("SpriteFrames_tufif")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.91232103
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, 8)
+shape = SubResource("CapsuleShape2D_tufif")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 8)
+shape = SubResource("CapsuleShape2D_tufif")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

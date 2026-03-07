@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://bvja4c4wlsa2q"]
+
+[ext_resource type="Script" uid="uid://qwv3mg8tseo1" path="res://z_plant.gd" id="1_2iicp"]
+[ext_resource type="Texture2D" uid="uid://vbe321kpc1cn" path="res://Assets/plant3.png" id="2_e3e76"]
+[ext_resource type="Texture2D" uid="uid://dkal8v052ehiq" path="res://Assets/plant4.png" id="3_tpnqj"]
+[ext_resource type="Texture2D" uid="uid://c5iunil00wjul" path="res://Assets/plant5.png" id="4_v0gkl"]
+[ext_resource type="Texture2D" uid="uid://0mdiilxsrq3m" path="res://Assets/plant1.png" id="5_70lia"]
+[ext_resource type="Texture2D" uid="uid://b3rvi78mapdty" path="res://Assets/plant2.png" id="6_gk62b"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hr31s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_e3e76")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tpnqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_v0gkl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tpnqj")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_70lia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gk62b")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4uu35"]
+radius = 32.0
+height = 136.0
+
+[node name="Z_Plant" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_2iicp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.9073486e-06, 1.9073486e-06)
+scale = Vector2(0.08341734, 0.08341734)
+sprite_frames = SubResource("SpriteFrames_hr31s")
+animation = &"Attack"
+autoplay = "Idle"
+frame = 3
+frame_progress = 1.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, 3)
+shape = SubResource("CapsuleShape2D_4uu35")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 3)
+shape = SubResource("CapsuleShape2D_4uu35")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
