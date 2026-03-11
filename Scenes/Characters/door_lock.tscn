@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvykt0evtvqim"]
+
+[ext_resource type="Script" uid="uid://dqxxf32ibkac5" path="res://door_lock.gd" id="1_nvgh2"]
+[ext_resource type="Texture2D" uid="uid://cna8brfq8bw5q" path="res://icon.svg" id="2_qg8vf"]
+[ext_resource type="Script" uid="uid://xfsjpm734x6h" path="res://Scenes/Characters/passphrase.gd" id="3_qg8vf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fu4i1"]
+size = Vector2(169.12207, 128.3487)
+
+[node name="Door Lock" type="Node2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_nvgh2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(571.9167, 112.70833)
+scale = Vector2(0.28776053, 0.23893249)
+texture = ExtResource("2_qg8vf")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(571.9167, 112.708336)
+scale = Vector2(0.28776056, 0.23893249)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-20.561035, -0.17437744)
+scale = Vector2(1, 0.9999999)
+shape = SubResource("RectangleShape2D_fu4i1")
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 541.0
+offset_top = 60.0
+offset_right = 594.0
+offset_bottom = 96.333336
+
+[node name="LineEdit" type="LineEdit" parent="Control"]
+layout_mode = 0
+offset_left = 0.33337402
+offset_top = 14.774353
+offset_right = 68.895874
+offset_bottom = 34.774353
+scale = Vector2(0.72268146, 1.070396)
+theme_override_font_sizes/font_size = 8
+placeholder_text = "Enter the word"
+script = ExtResource("3_qg8vf")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="text_submitted" from="Control/LineEdit" to="Control/LineEdit" method="_on_text_submitted"]

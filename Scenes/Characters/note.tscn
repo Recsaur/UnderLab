@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bryrcvlstnyx7"]
+[gd_scene load_steps=5 format=3 uid="uid://dmtkgwc3gnbcw"]
 
-[ext_resource type="Script" uid="uid://dpkthb3hqobxb" path="res://Scenes/Characters/mop_pickup.gd" id="1_2r2yy"]
-[ext_resource type="Texture2D" uid="uid://b05o45slcp26y" path="res://Assets/mop.jpg" id="2_6irq6"]
+[ext_resource type="Script" uid="uid://cq5smupv61d5g" path="res://note.gd" id="1_c7cve"]
+[ext_resource type="Texture2D" uid="uid://b05o45slcp26y" path="res://Assets/mop.jpg" id="2_8t0nb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nt022"]
 size = Vector2(166, 126.5)
@@ -9,12 +9,12 @@ size = Vector2(166, 126.5)
 [sub_resource type="LabelSettings" id="LabelSettings_mtcwm"]
 font_size = 371
 
-[node name="Node2D" type="Node2D"]
-script = ExtResource("1_2r2yy")
+[node name="note" type="Node2D"]
+script = ExtResource("1_c7cve")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.08357875, 0.08357874)
-texture = ExtResource("2_6irq6")
+texture = ExtResource("2_8t0nb")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -43,7 +43,7 @@ offset_top = -1.0
 offset_right = 1716.0
 offset_bottom = 505.0
 scale = Vector2(0.027623564, 0.027623564)
-text = "E - Pickup"
+text = "E-To Read"
 label_settings = SubResource("LabelSettings_mtcwm")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
