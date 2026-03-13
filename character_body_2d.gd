@@ -7,13 +7,14 @@ func _ready() -> void:
 	HitSignal.hit.connect(TakeDmg)
 
 func _input(event: InputEvent) -> void:
-	if $Mop/Area2D/CollisionShape2D.disabled == true:
-		if event.is_action_pressed("Attack"):
-			print("ATTACK")
-			$Mop.get_node("AnimationPlayer").play("mop_attack")
-			$Mop/Area2D/CollisionShape2D.disabled = false
-			await get_tree().create_timer(0.5).timeout
-			$Mop/Area2D/CollisionShape2D.disabled = true
+	if GameControl.CurrentWeapon == 1:
+		if $Mop/Area2D/CollisionShape2D.disabled == true:
+			if event.is_action_pressed("Attack"):
+				print("ATTACK")
+				$Mop.get_node("AnimationPlayer").play("mop_attack")
+				$Mop/Area2D/CollisionShape2D.disabled = false
+				await get_tree().create_timer(0.5).timeout
+				$Mop/Area2D/CollisionShape2D.disabled = true
 
 
 func _physics_process(delta: float) -> void:
@@ -41,7 +42,8 @@ func _physics_process(delta: float) -> void:
 func TakeDmg(Dmg,EnemyPos_x):
 	var Knockback_x = 2000
 	var Knockback_y = 250
-	
+	$Sprite2D.play("blood")
+	GameControl.Dmged = true
 	GameControl.JanitorHealth -= Dmg
 	if EnemyPos_x > GameControl.JanitorPosX:
 		velocity.x = -Knockback_x

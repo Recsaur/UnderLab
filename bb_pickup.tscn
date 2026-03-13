@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://c71exo5cdw86i"]
+
+[ext_resource type="Script" uid="uid://8lfjiumyh1a7" path="res://bb_pickup.gd" id="1_2ukya"]
+[ext_resource type="Texture2D" uid="uid://d1oqgjiuo64op" path="res://Assets/bunsen.png" id="2_rvrse"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4sor"]
+size = Vector2(217, 177.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1v7w2"]
+font_size = 371
+
+[node name="BBPickup" type="Node2D"]
+script = ExtResource("1_2ukya")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -19)
+scale = Vector2(0.08357875, 0.08357874)
+texture = ExtResource("2_rvrse")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-15.5, -40.25)
+shape = SubResource("RectangleShape2D_d4sor")
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+offset_left = -34.0
+offset_top = -57.000008
+offset_right = -34.0
+offset_bottom = -57.000008
+scale = Vector2(1.0045152, 1.0045152)
+size_flags_horizontal = 4
+
+[node name="Panel" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = -35.0
+offset_top = -86.0
+offset_right = 83.0
+offset_bottom = -46.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -80.0
+offset_right = 3847.0
+offset_bottom = 935.0
+scale = Vector2(0.027623564, 0.027623564)
+text = "E - Pickup Bunsen 
+Burner Flamethrower"
+label_settings = SubResource("LabelSettings_1v7w2")
+horizontal_alignment = 1
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

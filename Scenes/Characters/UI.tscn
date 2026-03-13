@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://usyidqpub856"]
+[gd_scene load_steps=6 format=3 uid="uid://usyidqpub856"]
+
+[ext_resource type="Script" uid="uid://dwfekc63aubdo" path="res://Scenes/Characters/ui.gd" id="1_srnn6"]
+[ext_resource type="Texture2D" uid="uid://5lm1cagcfe5h" path="res://Assets/mopaaa.png" id="2_pgwis"]
+[ext_resource type="Texture2D" uid="uid://bxiukm5yt8rps" path="res://Assets/d1.png" id="3_a7877"]
+[ext_resource type="Texture2D" uid="uid://d1oqgjiuo64op" path="res://Assets/bunsen.png" id="4_h5q4d"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cteeq"]
 font_size = 126
 
 [node name="Control" type="Control"]
+modulate = Color(1.0789914, 1.0789914, 1.0789914, 1)
 top_level = true
 layout_mode = 3
 anchors_preset = 15
@@ -11,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_srnn6")
 
 [node name="Panel2" type="Panel" parent="."]
 layout_mode = 1
@@ -32,6 +39,11 @@ offset_bottom = 169.0
 scale = Vector2(0.1694446, 0.1694446)
 text = "1"
 label_settings = SubResource("LabelSettings_cteeq")
+
+[node name="Mopaaa" type="Sprite2D" parent="Panel2"]
+position = Vector2(54, 47)
+scale = Vector2(0.061597966, 0.061597966)
+texture = ExtResource("2_pgwis")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -55,6 +67,12 @@ text = "2
 "
 label_settings = SubResource("LabelSettings_cteeq")
 
+[node name="D1" type="Sprite2D" parent="Panel"]
+visible = false
+position = Vector2(49, 49)
+scale = Vector2(0.076352775, 0.076352775)
+texture = ExtResource("3_a7877")
+
 [node name="Panel3" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 1
@@ -76,6 +94,12 @@ scale = Vector2(0.1694446, 0.1694446)
 text = "3
 "
 label_settings = SubResource("LabelSettings_cteeq")
+
+[node name="Bunsen" type="Sprite2D" parent="Panel3"]
+visible = false
+position = Vector2(55, 51)
+scale = Vector2(0.044775326, 0.044775326)
+texture = ExtResource("4_h5q4d")
 
 [node name="Panel4" type="Panel" parent="."]
 layout_mode = 1

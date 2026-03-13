@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://eplm6c7jfgh5"]
+[gd_scene load_steps=73 format=4 uid="uid://eplm6c7jfgh5"]
 
 [ext_resource type="Texture2D" uid="uid://c3ign7xt3cs6t" path="res://nuremberg-germany-december-30-2024-600nw-2704415507.webp" id="1_q4nek"]
 [ext_resource type="PackedScene" uid="uid://bnvcorulpkosx" path="res://Scenes/Characters/janitor.tscn" id="2_t6gnw"]
@@ -31,6 +31,11 @@
 [ext_resource type="Texture2D" uid="uid://cx2lusd74pmkb" path="res://Assets/boxwires.png" id="21_c6olo"]
 [ext_resource type="Texture2D" uid="uid://blyrpjf76yaby" path="res://Assets/trash1.png" id="22_1ktjt"]
 [ext_resource type="Texture2D" uid="uid://c1tg8lmp2p2y7" path="res://Assets/trash2.png" id="23_ng8e4"]
+[ext_resource type="Script" uid="uid://1alhydfeumdk" path="res://Scenes/Maps/canvas_layer.gd" id="26_h88lb"]
+[ext_resource type="Texture2D" uid="uid://bim2q3usnk467" path="res://Assets/HeartGone.png" id="28_n84m3"]
+[ext_resource type="Texture2D" uid="uid://b0lfbo2rdw2mw" path="res://Assets/Heart.png" id="29_u6ra1"]
+[ext_resource type="PackedScene" uid="uid://diw7kgrhuwcn5" path="res://shiv_pickup.tscn" id="30_u6ra1"]
+[ext_resource type="PackedScene" uid="uid://c71exo5cdw86i" path="res://bb_pickup.tscn" id="35_n84m3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iw27f"]
 texture = ExtResource("4_4i112")
@@ -371,12 +376,13 @@ scale = Vector2(1, 0.9999998)
 shape = SubResource("RectangleShape2D_p5pve")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("5_uf2qa")]
-position = Vector2(644, 305)
+position = Vector2(1435, 314)
 
 [node name="Janitor" parent="." instance=ExtResource("2_t6gnw")]
 position = Vector2(291, 292)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("26_h88lb")
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource("7_kdlte")]
 anchors_preset = 1
@@ -384,7 +390,77 @@ anchor_left = 1.0
 anchor_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 1
-scale = Vector2(0.53790224, 0.53790224)
+scale = Vector2(0.75, 0.75)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer"]
+color = Color(0.62152386, 0.62152386, 0.6215238, 1)
+
+[node name="Control3" type="Control" parent="CanvasLayer/CanvasModulate"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Heart" type="Sprite2D" parent="CanvasLayer/CanvasModulate/Control3"]
+modulate = Color(0.37413925, 0.37413928, 0.37413922, 1)
+position = Vector2(62.000008, 60)
+scale = Vector2(2.25, 2.25)
+texture = ExtResource("28_n84m3")
+
+[node name="Heart2" type="Sprite2D" parent="CanvasLayer/CanvasModulate/Control3"]
+modulate = Color(0.37254903, 0.37254903, 0.37254903, 1)
+position = Vector2(142, 60)
+scale = Vector2(2.25, 2.25)
+texture = ExtResource("28_n84m3")
+
+[node name="Heart3" type="Sprite2D" parent="CanvasLayer/CanvasModulate/Control3"]
+modulate = Color(0.37254903, 0.37254903, 0.37254903, 1)
+position = Vector2(218, 63.000015)
+scale = Vector2(2.25, 2.25)
+texture = ExtResource("28_n84m3")
+
+[node name="Heart4" type="Sprite2D" parent="CanvasLayer/CanvasModulate/Control3"]
+modulate = Color(0.37254903, 0.37254903, 0.37254903, 1)
+position = Vector2(298, 63.000015)
+scale = Vector2(2.25, 2.25)
+texture = ExtResource("28_n84m3")
+
+[node name="Heart5" type="Sprite2D" parent="CanvasLayer/CanvasModulate/Control3"]
+modulate = Color(0.37254903, 0.37254903, 0.37254903, 1)
+position = Vector2(379, 63.000015)
+scale = Vector2(2.25, 2.25)
+texture = ExtResource("28_n84m3")
+
+[node name="Control2" type="Control" parent="CanvasLayer/CanvasModulate"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Heart" type="Sprite2D" parent="CanvasLayer/CanvasModulate/Control2"]
+position = Vector2(62.000008, 60)
+scale = Vector2(2.25, 2.25)
+texture = ExtResource("29_u6ra1")
+
+[node name="Heart2" type="Sprite2D" parent="CanvasLayer/CanvasModulate/Control2"]
+position = Vector2(142, 60)
+scale = Vector2(2.25, 2.25)
+texture = ExtResource("29_u6ra1")
+
+[node name="Heart3" type="Sprite2D" parent="CanvasLayer/CanvasModulate/Control2"]
+position = Vector2(218, 63.000015)
+scale = Vector2(2.25, 2.25)
+texture = ExtResource("29_u6ra1")
+
+[node name="Heart4" type="Sprite2D" parent="CanvasLayer/CanvasModulate/Control2"]
+position = Vector2(298, 63.000015)
+scale = Vector2(2.25, 2.25)
+texture = ExtResource("29_u6ra1")
+
+[node name="Heart5" type="Sprite2D" parent="CanvasLayer/CanvasModulate/Control2"]
+position = Vector2(379, 63.000015)
+scale = Vector2(2.25, 2.25)
+texture = ExtResource("29_u6ra1")
 
 [node name="Node2D" parent="." instance=ExtResource("8_4i112")]
 visible = false
@@ -406,5 +482,12 @@ scale = Vector2(1.1467332, 1.1467332)
 position = Vector2(132, 52)
 scale = Vector2(1.1641164, 1.1641164)
 
+[node name="shiv_pickup" parent="." instance=ExtResource("30_u6ra1")]
+position = Vector2(963, 238)
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.117177, 0.35853997, 0.33549547, 1)
+color = Color(0.32544088, 0.3254409, 0.32544088, 1)
+
+[node name="BBPickup" parent="." instance=ExtResource("35_n84m3")]
+position = Vector2(1178, 335)
+scale = Vector2(0.6826203, 0.6826203)

@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://diw7kgrhuwcn5"]
+
+[ext_resource type="Script" uid="uid://mjfl8invrmjb" path="res://shiv_pickup.gd" id="1_wpq4u"]
+[ext_resource type="Texture2D" uid="uid://bxiukm5yt8rps" path="res://Assets/d1.png" id="2_k7eo7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yyllu"]
+size = Vector2(217, 177.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_faqvt"]
+font_size = 371
+
+[node name="shiv_pickup" type="Node2D"]
+script = ExtResource("1_wpq4u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-13, -5)
+scale = Vector2(0.06118666, 0.061186653)
+texture = ExtResource("2_k7eo7")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-15.5, -40.25)
+shape = SubResource("RectangleShape2D_yyllu")
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+offset_left = -34.0
+offset_top = -5.0
+offset_right = -34.0
+offset_bottom = -5.0
+scale = Vector2(1.0045152, 1.0045152)
+size_flags_horizontal = 4
+
+[node name="Panel" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = -26.878633
+offset_top = -86.0
+offset_right = 69.8427
+offset_bottom = -46.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = -80.0
+offset_right = 3847.0
+offset_bottom = 935.0
+scale = Vector2(0.027623564, 0.027623564)
+text = "E - Pickup Glass 
+Shard Shiv"
+label_settings = SubResource("LabelSettings_faqvt")
+horizontal_alignment = 1
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -1,12 +1,64 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnvcorulpkosx"]
+[gd_scene load_steps=14 format=3 uid="uid://bnvcorulpkosx"]
 
 [ext_resource type="Script" uid="uid://cdnsckd5fnp33" path="res://character_body_2d.gd" id="1_0kmga"]
 [ext_resource type="Texture2D" uid="uid://b33y1fdh20pe7" path="res://Assets/JanitorCharacter.png" id="2_0kmga"]
+[ext_resource type="Texture2D" uid="uid://ceslisk1mnt53" path="res://Assets/janitorassets/qwasd.png" id="2_pcaft"]
 [ext_resource type="Texture2D" uid="uid://ch5dbriqdegkj" path="res://Assets/JanitorIdle.png" id="3_jiomh"]
+[ext_resource type="Texture2D" uid="uid://bhl3qqarr6aba" path="res://Assets/janitorassets/dadas.png" id="3_sceb5"]
 [ext_resource type="PackedScene" uid="uid://cx4jplac047hs" path="res://Scenes/Items/Weapon.tscn" id="4_1ow1a"]
+[ext_resource type="Texture2D" uid="uid://bpq70u6qspic3" path="res://Assets/janitorassets/q1.png" id="4_56mbj"]
+[ext_resource type="Texture2D" uid="uid://bslhi0cu4iym" path="res://Assets/janitorassets/q2.png" id="5_gedvg"]
+[ext_resource type="Texture2D" uid="uid://b0f6qg8dc155u" path="res://Assets/janitorassets/h2.png" id="8_1ugcd"]
+[ext_resource type="Texture2D" uid="uid://chnyggk6ihcf2" path="res://Assets/janitorassets/h1.png" id="9_6x18i"]
+[ext_resource type="Texture2D" uid="uid://dkmdaqqxytrtq" path="res://Assets/janitorassets/h3.png" id="10_x56nf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1sgui"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pcaft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pcaft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pcaft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sceb5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pcaft")
+}],
+"loop": true,
+"name": &"blood",
+"speed": 2.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"gogglesblod",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_56mbj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_56mbj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_56mbj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gedvg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_56mbj")
+}],
+"loop": true,
+"name": &"gogglesidlenoblod",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_0kmga")
@@ -24,8 +76,27 @@ animations = [{
 "texture": ExtResource("2_0kmga")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
 "speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_1ugcd")
+}],
+"loop": true,
+"name": &"mop",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_6x18i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_x56nf")
+}],
+"loop": true,
+"name": &"mopattack",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1ow1a"]
@@ -41,7 +112,8 @@ script = ExtResource("1_0kmga")
 position = Vector2(0, -5)
 scale = Vector2(0.069146916, 0.069146916)
 sprite_frames = SubResource("SpriteFrames_1sgui")
-frame_progress = 0.3344063
+animation = &"mop"
+autoplay = "idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -35)
