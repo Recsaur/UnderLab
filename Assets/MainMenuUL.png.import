@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwmu216xf57t7"
-path="res://.godot/imported/g2 - Copy.png-a2b0ab2bafef7a897189aad82cfa582c.ctex"
+uid="uid://cs0ovaa3x8b0h"
+path="res://.godot/imported/MainMenuUL.png-860828b6f4d2c0bbe5b6151a9706f0a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/janitorassets/g2 - Copy.png"
-dest_files=["res://.godot/imported/g2 - Copy.png-a2b0ab2bafef7a897189aad82cfa582c.ctex"]
+source_file="res://Assets/MainMenuUL.png"
+dest_files=["res://.godot/imported/MainMenuUL.png-860828b6f4d2c0bbe5b6151a9706f0a5.ctex"]
 
 [params]
 

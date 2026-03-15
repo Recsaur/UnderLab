@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://bia2snxws60wy"]
+
+[ext_resource type="Texture2D" uid="uid://6gpftph5370n" path="res://Assets/hscientish.png" id="1_f56xj"]
+[ext_resource type="Texture2D" uid="uid://3423b6foo4bg" path="res://Assets/ascientist.png" id="2_hvxvt"]
+[ext_resource type="Texture2D" uid="uid://cyiqjl4617vy3" path="res://Assets/light.webp" id="3_geyal"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mxtak"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_f56xj")
+}],
+"loop": true,
+"name": &"HappySci",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hvxvt")
+}],
+"loop": true,
+"name": &"angrSci",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4b4aw"]
+radius = 24.333334
+height = 99.66667
+
+[node name="Scientist" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -17)
+scale = Vector2(0.07205182, 0.07205182)
+sprite_frames = SubResource("SpriteFrames_mxtak")
+animation = &"angrSci"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-3, -1.1666679)
+shape = SubResource("CapsuleShape2D_4b4aw")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -1.1666679)
+shape = SubResource("CapsuleShape2D_4b4aw")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-21.333334, 1.3333334)
+color = Color(1, 1, 1, 0.41960785)
+texture = ExtResource("3_geyal")

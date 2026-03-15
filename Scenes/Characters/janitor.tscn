@@ -1,19 +1,71 @@
-[gd_scene load_steps=14 format=3 uid="uid://bnvcorulpkosx"]
+[gd_scene load_steps=28 format=3 uid="uid://bnvcorulpkosx"]
 
 [ext_resource type="Script" uid="uid://cdnsckd5fnp33" path="res://character_body_2d.gd" id="1_0kmga"]
 [ext_resource type="Texture2D" uid="uid://b33y1fdh20pe7" path="res://Assets/JanitorCharacter.png" id="2_0kmga"]
+[ext_resource type="Texture2D" uid="uid://b66cj7jsexmc4" path="res://Assets/janitorassets/b1.png" id="2_2svjf"]
 [ext_resource type="Texture2D" uid="uid://ceslisk1mnt53" path="res://Assets/janitorassets/qwasd.png" id="2_pcaft"]
 [ext_resource type="Texture2D" uid="uid://ch5dbriqdegkj" path="res://Assets/JanitorIdle.png" id="3_jiomh"]
+[ext_resource type="Texture2D" uid="uid://bn1jc24x62057" path="res://Assets/janitorassets/b22b2.png" id="3_ppssv"]
 [ext_resource type="Texture2D" uid="uid://bhl3qqarr6aba" path="res://Assets/janitorassets/dadas.png" id="3_sceb5"]
 [ext_resource type="PackedScene" uid="uid://cx4jplac047hs" path="res://Scenes/Items/Weapon.tscn" id="4_1ow1a"]
 [ext_resource type="Texture2D" uid="uid://bpq70u6qspic3" path="res://Assets/janitorassets/q1.png" id="4_56mbj"]
+[ext_resource type="Texture2D" uid="uid://cpa0thheyuoxe" path="res://Assets/janitorassets/bbb2b2b.png" id="4_cu57y"]
 [ext_resource type="Texture2D" uid="uid://bslhi0cu4iym" path="res://Assets/janitorassets/q2.png" id="5_gedvg"]
+[ext_resource type="Texture2D" uid="uid://fiyku7a5xn00" path="res://Assets/janitorassets/bb1.png" id="5_iis1v"]
+[ext_resource type="Texture2D" uid="uid://dhd6qu1vjvple" path="res://Assets/janitorassets/2b2b.png" id="6_jvt4t"]
+[ext_resource type="Texture2D" uid="uid://k3wyalsewk6q" path="res://Assets/janitorassets/2b22b.png" id="7_1mcqu"]
 [ext_resource type="Texture2D" uid="uid://b0f6qg8dc155u" path="res://Assets/janitorassets/h2.png" id="8_1ugcd"]
 [ext_resource type="Texture2D" uid="uid://chnyggk6ihcf2" path="res://Assets/janitorassets/h1.png" id="9_6x18i"]
 [ext_resource type="Texture2D" uid="uid://dkmdaqqxytrtq" path="res://Assets/janitorassets/h3.png" id="10_x56nf"]
+[ext_resource type="Texture2D" uid="uid://ds31htwps8yns" path="res://Assets/janitorassets/J1.png" id="11_6x18i"]
+[ext_resource type="Texture2D" uid="uid://6gmyqnsqtbvp" path="res://Assets/janitorassets/j2.png" id="12_x56nf"]
+[ext_resource type="Texture2D" uid="uid://bbve4i3oajnff" path="res://Assets/janitorassets/j3.png" id="13_wxfkx"]
+[ext_resource type="Texture2D" uid="uid://jb48ertuoodd" path="res://Assets/janitorassets/gg1.png" id="14_wxfkx"]
+[ext_resource type="Texture2D" uid="uid://dolrntcbnggi7" path="res://Assets/janitorassets/g2.png" id="15_5g3j2"]
+[ext_resource type="Texture2D" uid="uid://bghmshjq6tikh" path="res://Assets/janitorassets/gg2.png" id="15_l8hk3"]
+[ext_resource type="Texture2D" uid="uid://ebe48j1k060c" path="res://Assets/janitorassets/g1g1.png" id="17_pdi7w"]
+[ext_resource type="Texture2D" uid="uid://cyiqjl4617vy3" path="res://Assets/light.webp" id="25_ppssv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1sgui"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2svjf")
+}],
+"loop": true,
+"name": &"bb",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ppssv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cu57y")
+}],
+"loop": true,
+"name": &"bbattack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_iis1v")
+}],
+"loop": true,
+"name": &"bbblood",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_jvt4t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1mcqu")
+}],
+"loop": true,
+"name": &"bbbloodattack",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_pcaft")
@@ -33,11 +85,6 @@ animations = [{
 "loop": true,
 "name": &"blood",
 "speed": 2.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"gogglesblod",
-"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -94,8 +141,59 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("10_x56nf")
 }],
-"loop": true,
+"loop": false,
 "name": &"mopattack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_6x18i")
+}],
+"loop": true,
+"name": &"mopblod",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_x56nf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_wxfkx")
+}],
+"loop": false,
+"name": &"mopblodattack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_wxfkx")
+}],
+"loop": true,
+"name": &"shiv",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_5g3j2")
+}],
+"loop": true,
+"name": &"shivattack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_l8hk3")
+}],
+"loop": true,
+"name": &"shivblood",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_pdi7w")
+}],
+"loop": true,
+"name": &"shivbloodattack",
 "speed": 5.0
 }]
 
@@ -112,8 +210,10 @@ script = ExtResource("1_0kmga")
 position = Vector2(0, -5)
 scale = Vector2(0.069146916, 0.069146916)
 sprite_frames = SubResource("SpriteFrames_1sgui")
-animation = &"mop"
+animation = &"bbbloodattack"
 autoplay = "idle"
+frame = 1
+frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -35)
@@ -132,5 +232,10 @@ shape = SubResource("CapsuleShape2D_1ow1a")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(-3, -1.1666679)
 shape = SubResource("CapsuleShape2D_1ow1a")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-21.333334, 1.3333334)
+color = Color(1, 1, 1, 0.41960785)
+texture = ExtResource("25_ppssv")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

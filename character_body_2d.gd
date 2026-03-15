@@ -1,21 +1,81 @@
 extends CharacterBody2D
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -800.0
+const JUMP_VELOCITY = -400.0
 
 func _ready() -> void:
 	HitSignal.hit.connect(TakeDmg)
 
 func _input(event: InputEvent) -> void:
-	if GameControl.CurrentWeapon == 1:
+	if event.is_action_pressed("1"):
+		print($Sprite2D.sprite_frames.get_animation_names())
+		if GameControl.Dmged:
+			$Sprite2D.play("mopblod")
+		else:
+			$Sprite2D.play("mop")
+			
+	if event.is_action_pressed("2") and GameControl.Shiv:
+		if GameControl.Dmged:
+			$Sprite2D.play("shivblood")
+		else:
+			$Sprite2D.play("shiv")
+			
+	if event.is_action_pressed("3") and GameControl.BB:
+		if GameControl.Dmged:
+			$Sprite2D.play("bbblood")
+		else:
+			$Sprite2D.play("bb")
+			
+	if GameControl.CurrentWeapon > 0:
 		if $Mop/Area2D/CollisionShape2D.disabled == true:
 			if event.is_action_pressed("Attack"):
-				print("ATTACK")
-				$Mop.get_node("AnimationPlayer").play("mop_attack")
-				$Mop/Area2D/CollisionShape2D.disabled = false
-				await get_tree().create_timer(0.5).timeout
-				$Mop/Area2D/CollisionShape2D.disabled = true
+				WeaponAttack()
 
+
+func WeaponAttack():
+	print("ATTACK")
+	var cooldown = 5
+	if GameControl.CurrentWeapon == 1:
+		cooldown = 0.5
+		if GameControl.Dmged:
+			$Sprite2D.play("mopblodattack")
+		else:
+			$Sprite2D.play("mopattack")
+	if GameControl.CurrentWeapon == 2:
+		cooldown = 0.25
+		if GameControl.Dmged:
+			$Sprite2D.play("shivbloodattack")
+		else:
+			$Sprite2D.play("shivattack")
+		
+	if GameControl.CurrentWeapon == 3:
+		cooldown = 0.2
+		if GameControl.Dmged:
+			$Sprite2D.play("bbbloodattack")
+		else:
+			$Sprite2D.play("bbattack")
+	$Mop/Area2D/CollisionShape2D.disabled = false
+	$Mop.get_node("Sprite2D").modulate = Color()
+	await get_tree().create_timer(cooldown).timeout
+	$Mop.get_node("Sprite2D").modulate = Color(0.0, 0.0, 0.0, 0.294)
+	$Mop/Area2D/CollisionShape2D.disabled = true
+	
+	#return to idle state
+	if GameControl.CurrentWeapon == 1:
+		if GameControl.Dmged:
+			$Sprite2D.play("mopblod")
+		else:
+			$Sprite2D.play("mop")
+	if GameControl.CurrentWeapon == 2:
+		if GameControl.Dmged:
+			$Sprite2D.play("shivblood")
+		else:
+			$Sprite2D.play("shiv")
+	if GameControl.CurrentWeapon == 3:
+		if GameControl.Dmged:
+			$Sprite2D.play("bbblood")
+		else:
+			$Sprite2D.play("bb")
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("Left", "Right")

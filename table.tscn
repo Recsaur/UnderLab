@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq02dsr7gicrn"]
+
+[ext_resource type="Texture2D" uid="uid://cmras1lont84p" path="res://Assets/table.png" id="1_jd0nb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5i0k"]
+size = Vector2(64, 32)
+
+[node name="table" type="StaticBody2D"]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v5i0k")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jd0nb")

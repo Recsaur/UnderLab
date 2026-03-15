@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2cuxx3bwdof6"
-path="res://.godot/imported/g1g1 - Copy.png-c6657bdcb10ddf24b6e1fc00bd5a5a6d.ctex"
+uid="uid://6gpftph5370n"
+path="res://.godot/imported/hscientish.png-c21b5c37bd1a1521889352fb3bcfb1b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/janitorassets/g1g1 - Copy.png"
-dest_files=["res://.godot/imported/g1g1 - Copy.png-c6657bdcb10ddf24b6e1fc00bd5a5a6d.ctex"]
+source_file="res://Assets/hscientish.png"
+dest_files=["res://.godot/imported/hscientish.png-c21b5c37bd1a1521889352fb3bcfb1b2.ctex"]
 
 [params]
 

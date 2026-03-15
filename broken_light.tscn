@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cejoinvsfx1y1"]
+
+[ext_resource type="Texture2D" uid="uid://drfipb7q3ugot" path="res://Assets/brokenlight.png" id="1_hf8ip"]
+[ext_resource type="Texture2D" uid="uid://cyiqjl4617vy3" path="res://Assets/light.webp" id="2_ugghm"]
+
+[node name="broken light" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5.09375, 5.09375)
+texture = ExtResource("1_hf8ip")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(10, -3)
+color = Color(0.7539839, 0.75398386, 0.75398386, 1)
+energy = 0.5
+texture = ExtResource("2_ugghm")

@@ -8,7 +8,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(GameControl.JanitorHealth)
+	#print(GameControl.JanitorHealth)
 	if GameControl.JanitorHealth == 4:
 		$CanvasModulate/Control2/Heart5.hide()
 		

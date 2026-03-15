@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://bb8w72t1f50j5"]
+
+[ext_resource type="Texture2D" uid="uid://cs0ovaa3x8b0h" path="res://Assets/MainMenuUL.png" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://c526m74xl1g8c" path="res://main_menu.gd" id="1_nlkkf"]
+[ext_resource type="Texture2D" uid="uid://ciogso6cinswv" path="res://Assets/buttons/start2.png" id="3_qe12f"]
+[ext_resource type="Texture2D" uid="uid://4svldlath6md" path="res://Assets/buttons/start1.png" id="5_dy7ct"]
+[ext_resource type="Texture2D" uid="uid://dw2i4avdja4b2" path="res://Assets/buttons/c1.png" id="6_8qtwp"]
+[ext_resource type="Texture2D" uid="uid://btfsv60s6pknh" path="res://Assets/buttons/c2.png" id="7_dy7ct"]
+[ext_resource type="PackedScene" uid="uid://b5oehi0scgkcb" path="res://FadeTransition.tscn" id="7_qe12f"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_nlkkf")
+
+[node name="MainMenuUl" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("1_06t4h")
+
+[node name="Start" type="TextureButton" parent="."]
+offset_left = 202.0
+offset_top = 371.0
+offset_right = 752.0
+offset_bottom = 625.0
+scale = Vector2(0.4, 0.4)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("5_dy7ct")
+texture_hover = ExtResource("3_qe12f")
+
+[node name="Credits" type="TextureButton" parent="."]
+offset_left = 210.0
+offset_top = 502.0
+offset_right = 757.0
+offset_bottom = 757.0
+scale = Vector2(0.4, 0.4)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("6_8qtwp")
+texture_hover = ExtResource("7_dy7ct")
+
+[node name="ColorRect" parent="." instance=ExtResource("7_qe12f")]
+visible = false
+
+[node name="FadeTimer" type="Timer" parent="ColorRect"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_left = 99.0
+offset_top = 80.0
+offset_right = 1014.0
+offset_bottom = 574.0
+
+[node name="Close" type="Button" parent="CanvasLayer"]
+offset_left = 534.0
+offset_top = 485.0
+offset_right = 738.0
+offset_bottom = 568.0
+text = "Back"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
+[connection signal="timeout" from="ColorRect/FadeTimer" to="." method="_on_fade_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/Close" to="." method="_on_close_pressed"]

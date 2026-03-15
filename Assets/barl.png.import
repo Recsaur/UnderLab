@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw0pkrowgd0by"
-path="res://.godot/imported/gg2 - Copy.png-52b09fcb4066c5549c7a5d9d89f10387.ctex"
+uid="uid://bpuvj1ud80li5"
+path="res://.godot/imported/barl.png-749013d05f064bc9787ba76c6b0d8857.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/janitorassets/gg2 - Copy.png"
-dest_files=["res://.godot/imported/gg2 - Copy.png-52b09fcb4066c5549c7a5d9d89f10387.ctex"]
+source_file="res://Assets/barl.png"
+dest_files=["res://.godot/imported/barl.png-749013d05f064bc9787ba76c6b0d8857.ctex"]
 
 [params]
 

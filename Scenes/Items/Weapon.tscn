@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cx4jplac047hs"]
 
 [ext_resource type="Script" uid="uid://bfmmpgshnhbgq" path="res://Scenes/Items/weapon.gd" id="1_a5gco"]
-[ext_resource type="Texture2D" uid="uid://b05o45slcp26y" path="res://Assets/mop.jpg" id="2_450ol"]
+[ext_resource type="Texture2D" uid="uid://dpw0oaevoq31e" path="res://Assets/crosshair.png" id="2_a5gco"]
 
 [sub_resource type="Animation" id="Animation_450ol"]
 length = 0.001
@@ -52,9 +52,11 @@ libraries = {
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(57.999996, 0)
-scale = Vector2(0.052650966, 0.052650955)
-texture = ExtResource("2_450ol")
+visible = false
+modulate = Color(1, 1, 1, 0.29411766)
+position = Vector2(83, 0)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_a5gco")
 
 [node name="Area2D" type="Area2D" parent="." groups=["Mop"]]
 position = Vector2(52, 0)
